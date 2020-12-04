@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 设计稿分为头部，中间的Banner，主导航，内容区域，底部
+        头部区域为100%宽的一个深色背景，头部中间有一块960px的定宽居中区域，里面包括了左边的Logo和右上角导航
+        Banner为100%宽的区块，中间右下方有banner轮显的当前图片数字的示例，其中正在显示的图片对应的数字有特殊样式（注意不需要实现轮显banner的业务逻辑，只是按照设计稿做静态样式）
+        主导航区域，有一个100%宽的灰色线条，线条之上，在中间960px区域是导航菜单，当前正在浏览页对应的菜单有特殊样式
+        主要内容区域，宽度为960px，里面每个内容都有至少80px的padding，每一个内容的宽度均为自适应，可以使用flex布局 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+        /* 头部模块start */
+        
+        .head {
+            width: 100%;
+            height: 100px;
+            background-color: rgba(0, 0, 0, .7);
+        }
+        
+        .head_d {
+            width: 960px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            float: left;
+            height: 100px;
+            font-size: 30px;
+            color: #fff;
+            line-height: 100px;
+        }
+        
+        .r_nav {
+            float: right;
+            margin: 20px 70px 0 0;
+        }
+        
+        .r_nav a {
+            color: #fff;
+        }
+        /* 头部模块end */
+        /* Banner模块start */
+        
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background-color: seagreen;
+        }
+        
+        .banner ul {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+        }
+        
+        .banner ul li a {
+            font-size: 22px;
+            border: 1px solid black;
+            padding: 10px;
+            color: black;
+        }
+        
+        .banner ul li a:hover {
+            padding-top: 20px;
+            background-color: #fff;
+        }
+        /* Banner模块end */
+        /* Nav模块start */
+        
+        .nav {
+            height: 100px;
+            border-bottom: 1px solid #000;
+            position: relative;
+        }
+        
+        .nav ul {
+            position: absolute;
+            bottom: -1px;
+            margin-left: 240px;
+            font-size: 0px;
+        }
+        
+        .nav ul li {
+            font-size: 18px;
+            height: 50px;
+            line-height: 50px;
+            color: burlywood;
+            background-color: rgba(0, 0, 0, .1);
+            border: 1px solid black;
+            border-radius: 20px 20px 0 0;
+            padding: 5px;
+        }
+        
+        .nav ul li:hover {
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+        /* Nav模块end */
+        /* Content模块start */
+        
+        .content {
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 20px;
+        }
+        
+        .content span {
+            flex: 1;
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 80px;
+            border: 1px solid #c0c0c0;
+            text-align: center;
+        }
+        
+        .content_1 {
+            flex: 200px;
+        }
+        /* Content模块end */
+        /* Footer模块start */
+        
+        .footer {
+            padding-top: 15px;
+            height: 100px;
+            background-color: #808080;
+            text-align: center;
+            color: #fff;
+        }
+        /* Footer模块end */
+    </style>
+</head>
+
+<body>
+    <!-- 头部模块start -->
+    <div class="head">
+        <div class="head_d">
+            <div class="logo">logo</div>
+            <div class="r_nav">
+                <a href="#">Github</a>
+                <a href="#">Register</a>
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </div>
+    <!-- 头部模块end -->
+    <!-- Banner模块start -->
+    <div class="banner">
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+        </ul>
+    </div>
+    <!-- Banner模块end -->
+    <!-- Nav模块start -->
+    <div class="nav">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PROFILE</a></li>
+            <li><a href="#">ABOUT</a></li>
+        </ul>
+        <!-- Nav模块start -->
+        <!-- Nav模块start -->
+    </div>
+    <!-- Nav模块end -->
+    <!-- Content模块start -->
+    <div class="content">
+        <span class="content_1">content1</span>
+        <span class="content_1">content2</span>
+        <span>content3</span>
+        <span>content4</span>
+        <span>content5</span>
+        <span>content6</span>
+        <span>content7</span>
+        <span>content8</span>
+        <span>content9</span>
+        <span>content10</span>
+    </div>
+
+    <!-- Content模块end -->
+    <!-- Footer模块start -->
+    <div class="footer">
+        <p>&copy; 2018 ife.baidu.com</p>
+    </div>
+    <!-- Footer模块end -->
+</body>
+
+</html>

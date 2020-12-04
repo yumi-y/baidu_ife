@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 实现一个两栏布局，左侧占30%宽度，右侧占70%宽度 */
+        /* Float方法 */
+        /*  .left {
+            float: left;
+            width: 30%;
+            height: 100px;
+            background-color: burlywood;
+        }
+        
+        .right {
+            float: left;
+            width: 70%;
+            height: 100px;
+            background-color: coral;
+        } */
+        /* Position方法 */
+        /* .left {
+            width: 30%;
+            height: 100px;
+            background-color: burlywood;
+            position: absolute;
+        }
+        
+        .right {
+            width: 70%;
+            height: 100px;
+            background-color: coral;
+            margin-left: 30%;
+        } */
+        /* flexbox方法 */
+        /*  .container {
+            display: flex;
+        }
+        
+        .left {
+            height: 100px;
+            background-color: burlywood;
+            flex: 1 1 30%;
+        }
+        
+        .right {
+            height: 100px;
+            background-color: coral;
+            flex: 1 1 70%;
+        } */
+        /* 实现一个两栏布局，左侧固定宽度，右侧根据浏览器宽度进行自适应变化 */
+        /* Float方法 */
+        /* .left {
+            width: 200px;
+            height: 100px;
+            float: left;
+            background-color: burlywood;
+        }
+        
+        .right {
+            height: 100px;
+            background-color: coral;
+            margin-left: 200px;
+        } */
+        /* Position方法 */
+        /* .left {
+            width: 200px;
+            height: 100px;
+            background-color: burlywood;
+            position: absolute;
+        }
+        
+        .right {
+            height: 100px;
+            background-color: coral;
+            margin-left: 200px;
+        } */
+        /* Flex方法 */
+        /* .container {
+            display: flex;
+        }
+        
+        .left {
+            width: 200px;
+            height: 100px;
+            background-color: burlywood;
+            flex: 0 0 auto;
+        }
+        
+        .right {
+            height: 100px;
+            background-color: coral;
+            flex: 1 1 auto;
+        } */
+        /* 实现一个两栏布局，右侧固定宽度，左侧根据浏览器宽度进行自适应变化 */
+        /*需调换left盒子和right盒子的先后位置 */
+        /* Float方法 */
+        /* .left {
+            height: 100px;
+            background-color: burlywood;
+            margin-right: 200px;
+        }
+        
+        .right {
+            float: right;
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+        } */
+        /* Position方法 */
+        /*需调换left盒子和right盒子的先后位置 */
+        /* .left {
+            height: 100px;
+            background-color: burlywood;
+            margin-right: 200px;
+        }
+        
+        .right {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            position: absolute;
+            right: 0;
+            top: 0;
+        } */
+        /* Flex方法 */
+        /* .container {
+            display: flex;
+        }
+        
+        .right {
+            width: 200px;
+            height: 100px;
+            background-color: burlywood;
+            flex: 0 0 auto;
+        }
+        
+        .left {
+            height: 100px;
+            background-color: coral;
+            flex: 1 1 auto;
+        } */
+        /* 实现一个三栏布局，左侧固定宽度，右侧固定宽度，中间部分宽度随浏览器宽度变化而自适应变化 */
+        /* Float方法 */
+        /* .left {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            float: left;
+        }
+        
+        .right {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            float: right;
+        }
+        
+        .cen_1 {
+            height: 100px;
+            margin: 0 200px;
+            background-color: darkgoldenrod;
+        } */
+        /* Position方法 */
+        /* .left {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            position: absolute;
+        }
+        
+        .right {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        .cen_1 {
+            height: 100px;
+            margin: 0 200px;
+            background-color: darkgoldenrod;
+        } */
+        /* Flex方法 */
+        /* .container {
+            display: flex;
+        }
+        
+        .left {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            flex: 0 0 auto;
+        }
+        .right {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            flex: 0 0 auto;
+        }
+        .cen_1 {
+            height: 100px;
+            background-color: darkgoldenrod;
+            flex: 1 1 auto;
+        } */
+        /* 实现一个三栏布局，左侧固定宽度，中间固定宽度，右侧根据浏览器宽度变化而自适应变化 */
+        /* Float方法 */
+        /* .left {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            float: left;
+        }
+        
+        .right {
+            height: 100px;
+            background-color: coral;
+        }
+        
+        .cen_1 {
+            width: 200px;
+            height: 100px;
+            background-color: darkgoldenrod;
+            float: left;
+        } */
+        /* Position方法 */
+        /* .left {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            position: absolute;
+        }
+        
+        .right {
+            height: 100px;
+            background-color: coral;
+            margin-left: 400px;
+        }
+        
+        .cen_1 {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(143, 105, 8);
+            position: absolute;
+            left: 200px;
+        } */
+        /* Flex方法 */
+        /* .container {
+            display: flex;
+        }
+        
+        .left {
+            width: 200px;
+            height: 100px;
+            background-color: coral;
+            flex: 0 0 auto;
+        }
+        
+        .right {
+            height: 100px;
+            background-color: coral;
+            flex: 1 1 auto;
+        }
+        
+        .cen_1 {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(143, 105, 8);
+            flex: 0 0 auto;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">1</div>
+        <div class="cen_1">3</div>
+        <div class="right">2</div>
+
+
+    </div>
+</body>
+
+</html>

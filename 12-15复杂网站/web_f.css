@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: medium;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    height: 100%;
+}
+
+.left {
+    position: absolute;
+    height: 100%;
+}
+
+.left_button {
+    float: left;
+    width: 120px;
+    height: 100%;
+    background-color: #1d2531;
+}
+
+.left_button img {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 10px 30px 0;
+}
+
+.under_button {
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    background-color: #eff3f6;
+}
+
+.under_button img {
+    margin: 15px 20px;
+}
+
+.nav {
+    float: left;
+    width: 260px;
+    height: 100%;
+    background-color: #222c3c;
+}
+
+.nav ul li {
+    padding: 15px 0;
+    margin: 0px 30px;
+    border-top: 1px solid #384353;
+}
+
+.nav dd {
+    font-size: 12px;
+    padding-top: 5px;
+    color: #384353;
+}
+
+.nav dd img {
+    float: right;
+}
+
+#Message {
+    color: #fff;
+}
+
+.nav dt {
+    font-size: 12px;
+    padding-top: 5px;
+    color: #b0b9c6;
+}
+
+.Sales img,
+#Message img,
+.Integrations img {
+    float: right;
+}
+
+.MonthlyGoals {
+    position: absolute;
+    left: 120px;
+    bottom: 0px;
+    width: 260px;
+    height: 50px;
+}
+
+.MonthlyGoals span {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    padding: 0px 30px;
+}
+
+.MonthlyGoals img {
+    position: absolute;
+    left: 25px;
+    bottom: 20px;
+}
+
+
+/* left左边模块结束 */
+
+
+/* right模块开始 */
+
+.right {
+    position: absolute;
+    width: calc(100% - 380px);
+    height: 100%;
+    left: 380px;
+}
+
+.head {
+    width: 100%;
+    height: 140px;
+}
+
+.head_bottom,
+.head_top {
+    width: 100%;
+    height: 68px;
+    border-bottom: 1px solid #e6e9ec;
+}
+
+.Messages {
+    font-size: 24px;
+    padding: 15px 30px;
+}
+
+.user {
+    position: absolute;
+    width: 200px;
+    right: 10px;
+    top: 10px;
+}
+
+#photo {
+    float: left;
+    margin-right: 20px;
+}
+
+#dropdown {
+    float: right;
+    margin-top: 15px;
+}
+
+.user span {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.user span h2 {
+    font-size: 16px;
+    color: #2399f1;
+}
+
+.user span h3 {
+    font-size: 14px;
+    color: #cacaca;
+}
+
+.search {
+    display: inline-block;
+    position: relative;
+    width: 399px;
+    border-right: 1px solid #e6e9ec;
+}
+
+.search input {
+    width: 300px;
+    height: 30px;
+    margin: 20px 40px;
+    color: #e6e9ec;
+    border: 1px solid #e6e9ec;
+}
+
+.search img {
+    position: absolute;
+    right: 70px;
+    top: 28px;
+}
+
+.berry {
+    position: relative;
+    display: inline-block;
+    position: absolute;
+    left: 400px;
+}
+
+.berry h2 {
+    font-size: 18px;
+    padding-left: 20px;
+    padding-top: 25px;
+    color: #585d68;
+}
+
+#status {
+    position: absolute;
+    left: 140px;
+    top: 35px;
+}
+
+#Tools {
+    position: absolute;
+    left: 360px;
+    top: 20px;
+    height: 32px;
+    border-right: 1px solid #e6e9ec;
+    padding-right: 30px;
+}
+
+#Chart {
+    position: absolute;
+    left: 520px;
+    top: 20px;
+}
+
+.bod {
+    height: calc(100% - 140px);
+    width: 100%;
+}
+
+.contents {
+    float: left;
+    width: 399px;
+    height: 100%;
+    border-right: 1px solid #e6e9ec;
+}
+
+.contents ul li {
+    position: relative;
+    height: 136px;
+    border-bottom: 1px solid #e6e9ec;
+}
+
+.contents img {
+    float: left;
+    padding: 20px 20px 10px 10px;
+}
+
+.contents h2 {
+    font-size: 16px;
+    padding-top: 20px;
+}
+
+.contents h4 {
+    font-size: 14px;
+    color: #e6e9ec;
+}
+
+.contents p {
+    font-size: 14px;
+    color: #585d68;
+    padding: 15px 15px 0px;
+}
+
+.contents h5 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 14px;
+    color: #585d68;
+}
+
+.messages {
+    width: calc(100% - 400px);
+    height: 100%;
+    margin-left: 400px;
+}
+
+.OldMessages {
+    overflow: hidden;
+    position: relative;
+    height: 130px;
+    width: 100%;
+}
+
+.OldMessages img {
+    float: left;
+    padding: 15px 15px 0px;
+}
+
+.OldMessages h2 {
+    position: absolute;
+    display: inline-block;
+    font-size: 14px;
+    color: #585d68;
+    left: 80px;
+    top: 15px;
+    padding-right: 10px;
+}
+
+.OldMessages p {
+    font-size: 14px;
+    color: #585d68;
+    margin-top: 45px;
+    padding-left: 80px;
+}
+
+.Tuesday {
+    position: relative;
+    height: 270px;
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid #e6e9ec;
+}
+
+.Tue {
+    position: relative;
+    width: 80px;
+    height: 25px;
+    top: -11px;
+    left: 280px;
+    text-align: center;
+    font-size: 14px;
+    color: #b0b9c6;
+    background-color: #fff;
+}
+
+.Tuesday img {
+    float: left;
+    padding: 0px 15px;
+}
+
+.Tuesday h2 {
+    position: absolute;
+    display: inline-block;
+    font-size: 14px;
+    color: #585d68;
+    left: 80px;
+    top: 20px;
+    padding-right: 10px;
+}
+
+.Tuesday p {
+    font-size: 14px;
+    color: #585d68;
+    margin-top: 25px;
+    padding-left: 80px;
+}
+
+.NewMessages {
+    position: relative;
+    height: 75px;
+    width: 100%;
+    margin-top: 50px;
+    border-top: 1px solid #e6e9ec;
+}
+
+.New {
+    position: relative;
+    width: 130px;
+    height: 25px;
+    top: -11px;
+    left: 260px;
+    text-align: center;
+    font-size: 14px;
+    color: #b0b9c6;
+    background-color: #fff;
+}
+
+.NewMessages input {
+    width: 560px;
+    height: 40px;
+    font-size: 12px;
+    color: #b0b9c6;
+    margin-left: 30px;
+    padding-left: 40px;
+    border: 1px solid #b0b9c6;
+}
+
+.add {
+    position: absolute;
+    width: 38px;
+    background-color: #f2f4f7;
+    top: 40px;
+    left: 42px;
+}
+
+.NewMessages img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}

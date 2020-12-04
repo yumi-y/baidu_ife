@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="web_f.css">
+</head>
+<!-- 
+1、最左侧一列要求自适应浏览器高度，左上面4个按钮相对浏览器左上角固定位置，左下方两个按钮相对浏览器左下角固定位置
+2、左侧第二列(蓝色背景色)导航列固定宽度，高度也是自适应浏览器高度，最下面的Monthly Goals部分的内容相对浏览器下边固定位置
+3、整个白色区域自适应宽度，右上方的人脸，名字部分相对浏览器右上角固定位置
+4、白色区域左侧列固定宽度，右侧列自适应宽度 -->
+
+<body>
+    <div class="left">
+        <div class="left_button">
+            <img src="image/Item 1.png" alt="">
+            <img src="image/Item 2.png" alt="">
+            <img src="image/Item 3.png" alt="">
+            <img src="image/Item 4.png" alt="">
+            <div class="under_button">
+                <img src="image/Grid.png" alt="">
+                <img src="image/Settings.png" alt="">
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <dl>
+                        <dd>
+                            <strong>Menu</strong>
+                            <img src="image/Settings.png" alt="">
+                        </dd>
+                        <dt>Overview</dt>
+                        <dt class="Sales">Sales
+                            <img src="image/54.png" alt="">
+                        </dt>
+                        <dt>Your Staff</dt>
+                        <dt>Analytics & Targeting</dt>
+                        <dt>What’s New</dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="picture">
+                        <dd>
+                            <strong>Your Products</strong>
+                            <img src="image/Settings.png" alt="">
+                        </dd>
+                        <dt>
+                            <img src="image/Book.png" alt="">
+                            &nbsp;Books</dt>
+                        <dt>
+                            <img src="image/Camera.png" alt="">
+                            Tutorials</dt>
+                        <dt>
+                            <img src="image/Painting.png" alt="">
+                            Stocks</dt>
+                        <dt>
+                            <img src="image/Chart.png" alt="">
+                            Infographics</dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dd>
+                            <strong>Dashboard</strong>
+                            <img src="image/Settings.png" alt="">
+                        </dd>
+                        <dt id="Message">
+                            <strong>Messages</strong>
+                            <img src="image/21.png" alt="">
+                        </dt>
+                        <dt>Connections</dt>
+                        <dt class="Integrations">Integrations
+                            <img src="image/_.png" alt="">
+                        </dt>
+                        <dt>Account Settings</dt>
+                        <dt>App Settings</dt>
+                    </dl>
+                </li>
+            </ul>
+            <div class="MonthlyGoals">
+                <span>Monthly Goals&nbsp;&nbsp;$580/$3200</span>
+                <img src="image/Fill.png" alt="">
+                <img src="image/Base.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="head">
+            <div class="head_top">
+                <div class="Messages">Messages</div>
+                <div class="user">
+                    <img src="image/Photo.png" alt="" id="photo">
+                    <span>
+                    <h2>Jordan J.</h2>
+                    <h3>Administrator</h3>
+                </span>
+                    <img src="image/dropdown.png" alt="" id="dropdown">
+                </div>
+            </div>
+            <div class="head_bottom">
+                <div class="search">
+                    <input type="text" value="&nbsp;&nbsp;searchsearch">
+                    <img src="image/Searchicon.png" alt="">
+                </div>
+                <div class="berry">
+                    <h2>Bessie Berry</h2>
+                    <img src="image/Status.png" alt="" id="status">
+                    <img src="image/Tools.png" alt="" id="Tools">
+                    <img src="image/Chats.png" alt="" id="Chart">
+                </div>
+            </div>
+        </div>
+        <div class="bod">
+            <div class="contents">
+                <ul>
+                    <li>
+                        <img src="image/Avatar1.png" alt="">
+                        <h2 style="color: #00aaff;">
+                            <img src="image/Statusblue.png" alt="" style="padding: 8px 5px 0;"> Bessie Berry
+                        </h2>
+                        <h4>Twitter</h4>
+                        <img src="image/4.png" alt="" style="position: absolute;right: 0px; top: 30px;">
+                        <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+                        <h5>3m</h5>
+                    </li>
+                    <li>
+                        <img src="image/Avatar2.png" alt="">
+                        <h2>Victor Weber</h2>
+                        <h4>Adobe</h4>
+                        <p>I shared this on my fb wall a few months back, and I thought I'd share it here again because it's such a great...</p>
+                        <h5>3m</h5>
+                    </li>
+                    <li>
+                        <img src="image/Avatar3.png" alt="">
+                        <h2>Dustin Benson</h2>
+                        <h4>Facebook</h4>
+                        <p>if there is anyone who needs an invitation please add yourself in the comments of this post!</p>
+                        <h5>Yesterday</h5>
+                    </li>
+                    <li>
+                        <img src="image/Avatar4.png" alt="">
+                        <h2>Jack Mason</h2>
+                        <h4>Yahoo</h4>
+                        <p>BruteDC is a peer-to-peer movie+tv series sharing and downloading platform which works on intranet inside...</p>
+                        <h5>Yesterday</h5>
+                    </li>
+                </ul>
+            </div>
+            <div class="messages">
+                <div class="OldMessages">
+                    <img src="image/Avatar1.png" alt="">
+                    <h2>Bessie Berry</h2>
+                    <h2 style="color: #a1adbc;position: absolute;left: 180px;">8:31 AM</h2>
+                    <p> Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps but it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files for example. I have decided
+                        to switch to the UPC package which offers 10mbps but do you think i will get it? </p>
+                </div>
+                <div class="Tuesday">
+                    <div class="Tue">Tuesday</div>
+                    <img src="image/Avatar5.png" alt="">
+                    <h2>Jordan Jackson</h2>
+                    <h2 style="color: #a1adbc;position: absolute;left: 210px;">8:31 AM</h2>
+                    <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2, and haven't had any problems. In fact, it's relatively quick, and stable. It's not perfect, but I really don't have issues, as long as I keep track of what I'm doing on it.
+                        I max out at about 3 Mb/sec down, and 350 Kb/sec up. Probably because of a noisy telephone line, not because I'm being throttled. When my uploads go over 25 KB/sec (note, bytes, not bits), my download speed suffers. This is expected,
+                        as downloads require bandwidth as well. </p>
+                    <img src="image/Photos.png" alt="" style="margin-left: 65px;margin-top: 10px;">
+                </div>
+                <div class="NewMessages">
+                    <div class="New">New Messages</div>
+                    <input type="text" value="Well, kinda both :) but more of that second option, i`ve seen many systems infected and crawling with">
+                    <div class="add"><img src="image/Add.png" alt=""></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

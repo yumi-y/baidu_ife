@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: medium;
+    /* 清除文本框的边框样式 */
+}
+
+li {
+    list-style: none;
+    /* 清除小li的样式 */
+}
+
+a,
+span,
+li {
+    display: inline-block;
+    /* 将行内元素转换为行内块元素 */
+}
+
+.full {
+    width: 1123px;
+    margin: 0 auto;
+}
+
+
+/* head部分start */
+
+.head {
+    overflow: hidden;
+    /* 防止子盒子溢出 */
+    width: 100%;
+    height: 705px;
+    background: url(image/Background.png);
+}
+
+.head h1 {
+    font-size: 43px;
+    color: #fff;
+    margin: 289px 428px 56px;
+}
+
+.reported {
+    font-size: 14px;
+    color: #fff;
+    padding: 5px 310px 30px 295px;
+    text-align: center;
+}
+
+.account {
+    width: 676px;
+    height: 174px;
+    border: 1px solid #534e4b;
+    margin: 0 229px 5px 211px;
+}
+
+.account a {
+    font-size: 12px;
+    color: #fff;
+    margin: 36px 260px 5px 270px;
+}
+
+#free {
+    color: #534e4b;
+    margin: 5px 255px 5px 275px;
+}
+
+#text {
+    margin: 20px 20px 0 67px;
+}
+
+#password {
+    margin: 20px 18px 0 0;
+}
+
+input {
+    width: 203px;
+    height: 33px;
+    background: none;
+    border: 1px solid #534e4b;
+    color: #534e4b;
+}
+
+button {
+    width: 89px;
+    height: 33px;
+}
+
+
+/* head部分end */
+
+
+/* nav部分start */
+
+.nav {
+    height: 510px;
+}
+
+.awesome {
+    font-size: 10px;
+    padding: 70px 490px 5px 480px;
+}
+
+.section {
+    font-size: 30px;
+    padding: 20px 300px 50px 310px;
+    text-align: center;
+}
+
+.nav_1 {
+    width: 750px;
+    height: 215px;
+    margin: 5px 210px 65px 190px;
+}
+
+.nav_1 ul li {
+    float: left;
+    width: 370px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.nav_1 ul li img {
+    float: left;
+    padding: 20px 10px;
+}
+
+.nav_1 ul li h2 {
+    font-size: 14px;
+    padding: 15px 0 0 50px;
+}
+
+.nav_1 ul li h4 {
+    font-size: 11.2px;
+    padding: 10px 0 0 50px;
+    color: #797979;
+}
+
+
+/* nav部分end */
+
+
+/* supportive部分start */
+
+.supportive {
+    height: 560px;
+    background-color: #616161;
+}
+
+.s_left {
+    float: left;
+    width: 492px;
+    height: 560px;
+}
+
+.s_right {
+    float: left;
+    width: 631px;
+    height: 560px;
+}
+
+.s_left h1 {
+    font-size: 29.4px;
+    padding: 105px 100px 50px 125px;
+    color: #fff;
+}
+
+.s_left h4 {
+    font-size: 12.6px;
+    padding: 5px 100px 30px 125px;
+    color: #fff;
+}
+
+.s_left button {
+    width: 180px;
+    height: 42px;
+    border: 1px solid #828282;
+    background-color: #616161;
+    color: #fff;
+    margin: 20px 25px;
+}
+
+.s_left button:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.s_right img {
+    margin: 70px 25px 0 5px;
+}
+
+
+/* supportive部分end */
+
+
+/* product部分start */
+
+.product {
+    height: 400px;
+}
+
+.product h4 {
+    font-size: 29.4px;
+    padding: 50px 300px 40px 330px;
+}
+
+.product ul {
+    width: 720px;
+    margin: 30px auto;
+}
+
+.product ul li {
+    width: 225px;
+    margin: 0 5px
+}
+
+.product ul li img {
+    margin: 0 auto;
+}
+
+.product ul li a {
+    font-size: 11.2px;
+    text-align: center;
+}
+
+
+/* product部分end */
+
+
+/* introduction部分start */
+
+.introduction {
+    overflow: hidden;
+    height: 700px;
+}
+
+.tree {
+    position: relative;
+    margin: 75px 210px 40px;
+}
+
+.tree_1 {
+    position: absolute;
+    width: 230px;
+    right: 0px;
+    top: 54px;
+}
+
+.bird {
+    position: relative;
+    margin: 5px 210px;
+}
+
+.bird_1 {
+    position: absolute;
+    width: 230px;
+    top: 54px;
+    left: 0px;
+}
+
+.bird img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+/* introduction部分end */
+
+
+/* crew部分start */
+
+.crew {
+    height: 745px;
+}
+
+.crew h2 {
+    font-size: 29.3px;
+    margin: 65px 410px 10px;
+}
+
+.crew h4 {
+    font-size: 12.6px;
+    margin: 10px 300px;
+    text-align: center;
+}
+
+.crew ul {
+    width: 700px;
+    margin: 50px 200px;
+}
+
+.crew ul li {
+    margin: 5px 5px;
+}
+
+
+/* crew部分end */
+
+
+/* sign部分start */
+
+.sign {
+    height: 490px;
+}
+
+.conunt {
+    float: left;
+    width: 330px;
+    height: 400px;
+    margin: 45px 75px 0px 220px;
+    border: 1px solid #f2f2f2;
+}
+
+.conunt h4 {
+    font-size: 11.2px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.conunt button,
+.conunt input {
+    width: 260px;
+    height: 35px;
+    border: 1px solid #f2f2f2;
+}
+
+#E-mail {
+    margin: 28px 25px 0 25px;
+}
+
+#Subject {
+    margin: 20px 25px;
+}
+
+#Message {
+    height: 100px;
+    margin: 0px 25px;
+}
+
+.conunt button {
+    text-align: center;
+    margin: 20px 25px;
+    background-color: black;
+    color: #fff;
+}
+
+.contacts {
+    float: left;
+}
+
+.contacts h1 {
+    font-size: 29.4px;
+    margin-top: 80px;
+    margin-left: 60px;
+}
+
+.contacts img {
+    display: block;
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+
+#Mail {
+    margin-top: 150px;
+}
+
+
+/* sign部分end */
+
+
+/* footer部分start */
+
+.footer {
+    height: 293px;
+    background-color: black;
+    color: #fff;
+}
+
+.footer ul li {
+    float: left;
+    margin: 70px 0px 50px 100px;
+}
+
+.footer dt {
+    font-size: 9.8px;
+}
+
+.footer dd {
+    font-size: 11.2px;
+    color: #525252;
+    margin-top: 20px;
+}
+
+.footer img {
+    margin-top: 20px;
+}
+
+
+/* footer部分end */
