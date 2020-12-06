@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 小练习，练习使用循环实现一个九九乘法表
+    第一步，最低要求：在Console中按行输出 n * m = t
+    然后，尝试在网页中，使用table来实现一个九九乘法表 -->
+
+<body>
+    <script>
+        //t属于一个字符串，由于作用域的问题，变量设置在循环外
+        var t = '';
+        for (var n = 1; n <= 9; n++) {
+            for (var m = 1; m <= n; m++) {
+                //每个算式之间用空格隔开
+                t += n + '*' + m + '=' + n * m + '\t';
+            }
+            //执行完内循环进行换行
+            t += '\n';
+        }
+        console.log(t);
+    </script>
+</body>
+
+</html>
