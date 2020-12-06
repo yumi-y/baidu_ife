@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+    }
+    
+    #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+    }
+</style>
+
+<body>
+
+    <p><button onclick="myMove()">单击我</button></p>
+
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+    <script>
+        //js动画根据计时器调用，由于时间间隔短，因此看起来连贯
+        function myMove() {
+            var elem = document.getElementById("animate");
+            var pos = 0;
+            //frame为要调用的函数，5表示周期性执行要调用的间隔
+            var id = setInterval(frame, 5);
+
+            function frame() {
+                //取消了setInterval的定时器，小方块不在移动
+                if (pos == 350) {
+                    //返回的是setInterval的ID值
+                    clearInterval(id);
+                } else {
+                    //表示方块开始移动，根据绝对定位来移动方块
+                    pos++;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
