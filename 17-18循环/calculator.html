@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="first_number" type="number" value="0" placeholder="第一个数字">
+    <input id="second_number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        function add() {
+            var num1 = Number(document.getElementById("first_number").value);
+            var num2 = Number(document.getElementById("second_number").value);
+            if (first_number.value == '' || second_number.value == '') {
+                console.log('请重新输入');
+            } else {
+                document.getElementById("result").innerHTML = num1 + num2;
+            }
+        }
+        document.getElementById("add-btn").addEventListener('click', add);
+
+        function minus() {
+            if (first_number.value == '' || second_number.value == '') {
+                console.log('请重新输入');
+            } else {
+                var num1 = Number(document.getElementById("first_number").value);
+                var num2 = Number(document.getElementById("second_number").value);
+                document.getElementById("result").innerHTML = num1 - num2;
+            }
+        }
+        document.getElementById("minus-btn").addEventListener('click', minus);
+
+        function times() {
+            if (first_number.value == '' || second_number.value == '') {
+                console.log('请重新输入');
+            } else {
+                var num1 = Number(document.getElementById("first_number").value);
+                var num2 = Number(document.getElementById("second_number").value);
+                document.getElementById("result").innerHTML = num1 * num2;
+            }
+        }
+        document.getElementById("times-btn").addEventListener('click', times);
+
+        function divide() {
+            if (first_number.value == '' || second_number.value == '' || second_number.value == 0) {
+                console.log('请重新输入');
+            } else {
+                var num1 = Number(document.getElementById("first_number").value);
+                var num2 = Number(document.getElementById("second_number").value);
+                document.getElementById("result").innerHTML = num1 / num2;
+            }
+        }
+        document.getElementById("divide-btn").addEventListener('click', divide);
+    </script>
+</body>
+
+</html>
