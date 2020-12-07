@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loadPic {
+            background: url(erik_ce204002.jpg);
+            width: 480px;
+            height: 480px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loadPic">
+    </div>
+    <script>
+        //用JavaScript实现CSS操作，制作一个帧动画
+        //window.onload网页加载完毕后立即执行的方法
+        window.onload = function() {
+            var ani = document.getElementsByClassName("loadPic")[0];
+            var Y = 0;
+
+            function changePic() {
+
+                ani.style.backgroundPositionY = '-' + Y + 'px';
+                Y += 480;
+                if (Y == 8160) {
+                    Y = 0;
+                }
+            }
+            //已指定周期来调用函数
+            setInterval(changePic, 100);
+        }
+    </script>
+
+</body>
+
+</html>
