@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 针对以上 HTML，分别使用 setTimeout 和 setInterval 实现以下功能：
+        点击按钮时，开始改变 fade-obj 的透明度，开始一个淡出（逐渐消失）动画，直到透明度为0
+        在动画过程中，按钮的状态变为不可点击
+        在动画结束后，按钮状态恢复，且文字变成“淡入”
+        在 按钮显示 淡入 的状态时，点击按钮，开始一个“淡入”（逐渐出现）的动画，和上面类似按钮不可点，直到透明度完全不透明
+        淡入动画结束后，按钮文字变为“淡出”
+        暂时不要使用 CSS animation （以后我们再学习） -->
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        var fadeObj = document.getElementById("fade-obj");
+        var fadeBtn = document.getElementById("fade-btn");
+        var i = 1;
+
+        function fadeout() {
+            //opacity设置元素的不透明度，默认为1完全不透明，0为完全透明
+            fadeObj.style.opacity = i;
+            //透明度逐渐减少
+            i -= 0.1;
+            //disable表示是否禁用单选按钮，true为禁用
+            fadeBtn.disable = true;
+            if (i > 0) {
+                //setTimeout()函数表示用于计算时间，fadeout为要执行的函数代码，100为等待的毫秒数
+                setTimeout(fadeout, 100);
+                console.log(i);
+            } else if (i <= 0) {
+                //设置按钮可进行点击
+                fadeBtn.innerHTML = "淡入";
+                fadeBtn.disable = false;
+                //事件监听器，点击可调用fadein函数
+                fadeBtn.addEventListener("click", fadein);
+            }
+        }
+
+        function fadein() {
+            fadeObj.style.opacity = i;
+            i += 0.1;
+            fadeBtn.disable = true;
+            if (i < 1) {
+                setTimeout(fadein, 100);
+                console.log(i);
+            } else if (i >= 1) {
+                fadeBtn.innerHTML = "淡出";
+                fadeBtn.disable = false;
+                fadeBtn.addEventListener("click", fadeout);
+            }
+        }
+        fadeBtn.addEventListener("click", fadeout);
+    </script>
+</body>
+
+</html>
