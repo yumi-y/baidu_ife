@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 我们现在来做一个最简单的时钟，通过小练习来学习 Date，复习定时，然后再练习一下函数的封装
+具体需求如下：
+在页面中显示当前日期及时间，按秒更新
+格式为 YYYY 年 MM 月 DD 日 星期 D HH:mm:ss
+注意位数的补齐，比如：
+-- 假设时间为2008年10月10日星期一的12点12分12秒，显示2008年10月10日星期一 12:12:12
+-- 假设时间为2008年1月1日星期一的3点2分2秒，显示2008年01月01日星期一 03:02:02
+编码过程中，我们希望你注意对函数的封装，尽量让一个函数就做一个事情，而不要把所有的功能、代码揉在一起：
+
+封装一个函数，来根据某个日期返回这一天是星期几
+封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01
+封装一个函数，把最后的日期时间，按照要求的格式进行包装
+可能不止上面这些，尽可能地进行功能的解耦和拆解 -->
+
+<body>
+    <p id="date"></p>
+    <script>
+        var dateTxt = document.getElementById('date');
+
+        function getWeekday1(getWeekday) {
+            switch (weekday) {
+                case 0:
+                    weekday = "星期日";
+                    break;
+                case 1:
+                    weekday = "星期一";
+                    break;
+                case 2:
+                    weekday = "星期二";
+                    break;
+                case 3:
+                    weekday = "星期三";
+                    break;
+                case 4:
+                    weekday = "星期四";
+                    break;
+                case 5:
+                    weekday = "星期五";
+                    break;
+                case 6:
+                    weekday = "星期六";
+                    break;
+            }
+            return weekday;
+        }
+
+        function getWeekday2(weekday) {
+            switch (weekday) {
+                case 0:
+                    weekday = "Sunday";
+                    break;
+                case 1:
+                    weekday = "Monday";
+                    break;
+                case 2:
+                    weekday = "Tuesday";
+                    break;
+                case 3:
+                    weekday = "Wednesday";
+                    break;
+                case 4:
+                    weekday = "Thursday";
+                    break;
+                case 5:
+                    weekday = "Friday";
+                    break;
+                case 6:
+                    weekday = "Saturday";
+                    break;
+            }
+            return weekday;
+        }
+        //补零函数
+        function addZero(a) {
+            if (a < 10) {
+                a = '0' + a;
+            }
+            return a;
+        }
+        //判断时间是否超过12点
+        function changeHour(hour) {
+            if (hour > 12) {
+                hour = hour - 12;
+            }
+            return hour;
+        }
+
+        function startTime1() {
+            var newDate = new Date(); //函数要自身调用一个时间，获取时间要写在内部 不然只是获取加载时的第一次日期对象，并不更新
+            var year = newDate.getFullYear();
+            var month = newDate.getMonth() + 1;
+            var mon = addZero(month);
+            var day = newDate.getDate();
+            var d = addZero(day);
+            var hour = newDate.getHours();
+            var minute = newDate.getMinutes();
+            var second = newDate.getSeconds();
+            var h = addZero(hour);
+            var m = addZero(minute);
+            var s = addZero(second);
+            dateTxt.innerHTML = year + "年" + mon + "月" + d + "日" + h + ":" + m + ":" + s;
+            t = setTimeout("startTime1()", 500); //第一种调用函数
+        }
+
+        function startTime2() {
+            var newDate = new Date(); //获取时间要写在内部 不然只是获取加载时的第一次日期对象，并不更新
+            var year = newDate.getFullYear();
+            var month = newDate.getMonth() + 1;
+            var mon = addZero(month);
+            var day = newDate.getDate();
+            var d = addZero(day);
+            var weekday = getWeekday2(newDate.getDay());
+            var hour = newDate.getHours();
+            var minute = newDate.getMinutes();
+            var second = newDate.getSeconds();
+            var h = addZero(changeHour(hour));
+            var m = addZero(minute);
+            var s = addZero(second);
+            if (hour < 12) {
+                dateTxt.innerHTML = year + "-" + mon + "-" + d + " " + weekday + " " + h + ":" + m + ":" + s + " " +
+                    "AM";
+            } else {
+                dateTxt.innerHTML = year + "-" + mon + "-" + d + " " + weekday + " " + h + ":" + m + ":" + s + " " +
+                    "PM";
+            }
+            t = setTimeout(startTime2, 500); //第二种调用函数
+        }
+        startTime1();
+        startTime2();
+    </script>
+</body>
+
+</html>
