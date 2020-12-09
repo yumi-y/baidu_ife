@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 使用上方的HTML结构（可以根据需要自行微调）为基础编写JavaScript代码
+当变更任何一个select选择时，更新 result-wrapper 的内容
+当所选时间早于现在时间时，文案为 现在距离 "所选时间" 已经过去 xxxx
+当所选时间晚于现在时间时，文案为 现在距离 "所选时间" 还有 xxxx
+注意当前时间经过所选时间时候的文案变化
+注意选择不同月份的时候，日期的可选范围不一样，比如1月可以选31天，11月只有30天，注意闰年
+同样，需要注意，通过优雅的函数封装，使得代码更加可读且可维护 -->
+
+<body>
+    <select id="year-select">
+        <option value="">请选择 年</option> 
+    </select>
+
+    <select id="month-select">
+        <option value="">请选择 月</option>
+    </select>
+
+    <select id="day-select">
+        <option value="">请选择 天</option>
+    </select>
+
+    <select id="hour-select">
+        <option value="">请选择 时</option>
+    </select>
+
+    <select id="minute-select">
+        <option value="">请选择 分</option>
+    </select>
+
+    <select id="second-select">
+        <option value="">请选择 秒</option>
+    </select>
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+    <script>
+        var year = document.getElementById("year-select");
+        var month = document.getElementById("month-select");
+        var day = document.getElementById("day-select");
+        var hour = document.getElementById("hour-select");
+        var minute = document.getElementById("minute-select");
+        var second = document.getElementById("second-select");
+        var result = document.getElementById("result-wrapper");
+        //初始化为现在时间
+        function startTime() {
+            MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            //先给年下拉框赋内容
+            var y = new Date().getFullYear();
+            for (var i = (y - 30); i < (y + 30); i++) { //以今年为准，前30年，后30年
+                //添加选项option  add(new option('文本'，‘值’))
+                year.options.add(new Option(i + " 年", i));
+            }
+            //赋月份的下拉框
+            for (var i = 1; i < 13; i++) {
+                month.options.add(new Option(i + " 月", i));
+            }
+            for (var i = 1; i < 31; i++) {
+                day.options.add(new Option(i + " 天", i));
+            }
+            //小时下拉框
+            for (var i = 1; i <= 24; i++) {
+                hour.options.add(new Option(i));
+            }
+            //分钟下拉框
+            for (var i = 1; i <= 60; i++) {
+                minute.options.add(new Option(i));
+            }
+            //秒下拉框
+            for (var i = 1; i <= 60; i++) {
+                second.options.add(new Option(i));
+            }
+        }
+
+        function addZero(a) {
+            if (a < 10) {
+                a = "0" + a;
+            }
+            return a;
+        }
+
+        function getWeekday(weekday) {
+            var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            return arr[weekday];
+        }
+
+        function optionsClear(e) {
+            //设置option选项只能选一个
+            e.options.length = 1;
+        }
+
+        function writeDay(n) {
+            optionsClear(day); //清除原来已有的数组
+            for (i = 1; i < n + 1; i++) {
+                day.options.add(new Option(i + "日", i));
+            }
+        }
+        //判断是否闰年
+        function isLeapYear(year) {
+            return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+        }
+
+        year.onchange = function() {
+            var mmValue = month.options[month.selectedIndex].value;
+            var n = Days[mmValue - 1];
+            if (mmValue == 2 && isLeapYear(year.value)) //判断是否为闰年，是的话2月份+1天。
+                n++;
+            writeDay(n);
+        }
+        month.onchange = function() {
+            var yyValue = year.options[year.selectedIndex].value;
+            var n = Days[month.value - 1];
+            if (month.value == 2 && isLeapYear(yyValue))
+                n++;
+            writeDay(n);
+        }
+        if (document.attachEvent) {
+            window.attachEvent("onload", startTime);
+        } else {
+            window.addEventListener("load", startTime);
+        }
+
+        function getTimeSelect() {
+            var str = year.value + "/" + month.value + "/" + day.value;
+            var timeSelect = new Date(str);
+            return year.value + "年" + month.value + "月" + day.value + "日" + getWeekday(timeSelect.getDay()) + hour.value +
+                ":" + minute.value + ":" + second.value;
+        }
+
+        function getTimeDistance() {
+            var now = new Date();
+            var timeSelectStr = year.value + "/" + month.value + "/" + day.value + " " + hour.value + ":" + minute.value +
+                ":" + second.value;
+            var selectTime = new Date(timeSelectStr);
+            var secondDistance = now.getTime() - selectTime.getTime();
+            if (secondDistance < 0) {
+                secondDistance = -secondDistance; //转换为正整数方便计算
+                var str = "还有";
+            } else {
+                var str = "已经过去"
+            }
+            var dayM = secondDistance / 86400000;
+            var hourM = (secondDistance % 86400000) / 3600000;
+            var minuteM = ((secondDistance % 86400000) % 3600000) / 60000;
+            var secondM = (((secondDistance % 86400000) % 3600000) % 60000) / 1000;
+            return str + parseInt(dayM) + "天" + parseInt(hourM) + "小时" + parseInt(minuteM) + "分" + parseInt(secondM) +
+                "秒";
+        }
+
+        function showDate() {
+            result.innerHTML = "现在距离" + getTimeSelect() + getTimeDistance();
+        }
+        setInterval(showDate, 1000);
+    </script>
+</body>
+
+</html>
