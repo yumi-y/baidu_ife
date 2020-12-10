@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            list-style-type: none;
+        }
+        
+        div {
+            width: 250px;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .liChecked {
+            background-color: aquamarine;
+        }
+        
+        li:hover {
+            background-color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text" />
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+    <script>
+        // 邮箱后缀List参考
+        var postfixList = [
+            "163.com",
+            "gmail.com",
+            "126.com",
+            "qq.com",
+            "263.net",
+        ];
+        var inputDom = document.getElementById("email-input");
+        var eTip = document.getElementById("email-sug-wrapper");
+        var showHide = "show";
+        var tipText = "";
+        //鼠标点击提示框内容获取--事件代理
+        eTip.onclick = function(ev) {
+            var ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if (target.nodeName.toLowerCase() == "li") {
+                tipText = HtmlUtil.htmlDecode(target.innerHTML); //解码
+            }
+            inputDom.value = tipText;
+            hideFrame();
+            inputDom.focus();
+        };
+        //输入框输入监听
+        inputDom.oninput = function() {
+            var str = tipFrame(); //获取tip框内容
+            addLi(str); //添加提示
+            colDisplay(); //提示框显示/隐藏
+            reSelStatus(); //重置li选中状态
+            keyCode(event); //操作方向键
+        };
+        inputDom.onkeydown = keyCode;
+        //获取用户输入内容
+        function userInpVal() {
+            var val = inputDom.value.replace(/ /g, "");
+            return removeHtmlTab(val);
+        }
+        //去掉html标签
+        function removeHtmlTab(tab) {
+            return tab.replace(/<[^<>]+?>/g, ""); //删除所有HTML标签
+        }
+        //生成提示框内容
+        function tipFrame() {
+            var val = HtmlUtil.htmlEncode(userInpVal()); //转码
+            var afterVal,
+                str = "";
+            var mark = val.indexOf("@"); //'@'标志位置
+            if (mark != -1) {
+                afterVal = val.slice(mark + 1); //@之后的字符串
+                val = val.slice(0, mark); //@之前的字符串
+            }
+            postfixList.forEach((value, index, arr) => {
+                if (mark == -1) {
+                    //用户没有输入@符号
+                    str += "<li>" + val + "@" + value + "</li>\n";
+                } else {
+                    if (value.indexOf(afterVal) != -1) {
+                        //用户输入了@符号，且后缀能匹配上
+                        str += "<li>" + val + "@" + value + "</li>\n";
+                    } else if (
+                        //用户输入了@符号，但后缀匹配不上,则显示全部提示内容
+                        arr[0].indexOf(afterVal) == -1 &&
+                        arr[1].indexOf(afterVal) == -1 &&
+                        arr[2].indexOf(afterVal) == -1 &&
+                        arr[3].indexOf(afterVal) == -1 &&
+                        arr[4].indexOf(afterVal) == -1
+                    ) {
+                        str += "<li>" + val + "@" + value + "</li>\n";
+                    }
+                }
+            });
+            return str;
+        }
+        //将提示内容添加到ul中
+        function addLi(str) {
+            eTip.innerHTML = str;
+            var uLi = eTip.querySelectorAll("li");
+            if (uLi.length > 0) {
+                uLi[0].className = "liChecked";
+            }
+        }
+        //删除li
+        function removeLi() {
+            var liSize = eTip.children.length; //获取ul子元素的集合长度
+            for (var i = 0; i < liSize; i++) {
+                eTip.removeChild(eTip.childNodes[0]); //总是删除第一个，重复n次。
+            }
+        }
+        //控制ul的显示/隐藏状态
+        function colDisplay() {
+            if (inputDom.value.trim() == "" || inputDom.value.length == 0) {
+                hideFrame();
+            } else {
+                showFrame();
+            }
+            return showHide;
+        }
+        //隐藏提示框
+        function hideFrame() {
+            eTip.style.display = "none";
+        }
+        //显示提示框
+        function showFrame() {
+            eTip.style.display = "block";
+        }
+        //键盘方向键监听-上下回车
+        function keyCode(event) {
+            var e = event.keyCode;
+            var uLi = eTip.querySelectorAll("li"); //拿到li集合
+            var liChecked = 0; //li的位置
+            var liLast = uLi.length;
+            //找到被选中的li
+            uLi.forEach((val, index) => {
+                if (uLi[index].className == "liChecked") {
+                    liChecked = index;
+                }
+            });
+            if (eTip.style.display == "block") {
+                if (e == 13) {
+                    inputDom.value = HtmlUtil.htmlDecode(uLi[liChecked].innerHTML);
+                    hideFrame();
+                } else if (e == 27) {
+                    inputDom.select();
+                } else if (e == 38) {
+                    uLi[liChecked].className = ""; //清除选中
+                    if (liChecked != 0) {
+                        //不是第一个li
+                        uLi[--liChecked].className = "liChecked";
+                    } else {
+                        uLi[--liLast].className = "liChecked";
+                    }
+                } else if (e == 40) {
+                    uLi[liChecked].className = ""; //清除选中
+                    if (liChecked != liLast - 1) {
+                        //不是最后一个li
+                        uLi[++liChecked].className = "liChecked";
+                    } else {
+                        uLi[0].className = "liChecked";
+                    }
+                }
+            }
+        }
+        //重置选中状态
+        function reSelStatus() {
+            var uLi = eTip.querySelectorAll("li"); //拿到li集合
+            var liChecked = 0;
+            uLi.forEach((val, index) => {
+                if (uLi[index].className == "liChecked") {
+                    liChecked = index;
+                }
+            });
+            if (liChecked != 0) {
+                //不是第一个li
+                uLi[liChecked].className = "";
+                uLi[0].className = "liChecked"; //则选中第一个
+            }
+        }
+        window.onload = function() {
+            inputDom.focus();
+        };
+
+        //对字符串 转码 和 解码
+        var HtmlUtil = {
+            /*1.用浏览器内部转换器实现html转码*/
+            htmlEncode: function(html) {
+                //1.首先动态创建一个容器标签元素，如DIV
+                var temp = document.createElement("div");
+                //2.然后将要转换的字符串设置为这个元素的innerText(ie支持)或者textContent(火狐，google支持)
+                temp.textContent != undefined ?
+                    (temp.textContent = html) :
+                    (temp.innerText = html);
+                //3.最后返回这个元素的innerHTML，即得到经过HTML编码转换的字符串了
+                var output = temp.innerHTML;
+                temp = null;
+                return output;
+            },
+            /*2.用浏览器内部转换器实现html解码*/
+            htmlDecode: function(text) {
+                //1.首先动态创建一个容器标签元素，如DIV
+                var temp = document.createElement("div");
+                //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+                temp.innerHTML = text;
+                //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+                var output = temp.innerText || temp.textContent;
+                temp = null;
+                return output;
+            },
+        };
+    </script>
+</body>
+
+</html>
